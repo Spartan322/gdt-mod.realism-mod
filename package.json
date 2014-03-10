@@ -1,0 +1,13 @@
+{
+    
+    "id" : "Spartan322-GDT-Mod.Real-Mod",
+    "name" : "Realism Mod",
+    "version" : "0.0.1.0",
+    "author" : "Spartan322 <Spartan322@live.com>",
+    "description" : "A mod to add more realistic features. (Version Format: <full release build number>.<beta build number>.<alpha build number>.<bug fix build number>",
+    "url" : "http://baricadegames.weebly.com",
+    "main" : "./realism-mod.js",
+    "dependencies" : {
+        "gdt-modAPI":"0.1.x"
+    }
+}

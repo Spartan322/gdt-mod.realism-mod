@@ -14,6 +14,7 @@
         };
 
         GDT.loadJs([
+        'mods/realism-mod/competition/competitior.js',
         'mods/realism-mod/event/events.js'
         ], ready, error);
 })();

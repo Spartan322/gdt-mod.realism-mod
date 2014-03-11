@@ -1,25 +1,19 @@
-var Realism = {};
 (function () {
-        Realism.eventKeys = {
-                competition: {
-                        rumorGame : "competition.rumorGame",
-                        comfirmedGame : "competition.comfirmedGame",
-                        canceledGame : "competition.canceledGame",
-                        releasedGame : "competition.releasedGame",
-                        rumorEngine : "competition.rumorEngine",
-                        comfirmedEngine : "competition.comfirmedEngine",
-                        releasedEngine : "competition.releasedEngine",
-                }
+//this is the default modding API module that is loaded as the first mod and provides convenience methods for other mods.
+//generally methods are added to the global object GDT.
+        var ready = function () {
+        //example calls
+
+        //Examples.addTopic();
+        //Examples.addPlatform();
+        //Examples.addEvent();
+        //Examples.addResearch();
         };
-        Realism.eventFunc = {
-                competition: {
-                    rumorGame = function () {
-                            new Notification(
-                            header : "Competition Rumor".localize(),
-                            text : "{0} hasn't comfirmed it yet but we believe that {0} is going to be coming out with a game{n}It seems this game's rumors could affect out sales".localize().format(Realism.competitiorFunc.GetComptitior()))
-                    }
-                }
+
+        var error = function () {
         };
-        GDT.on(this.eventKeys.competition.rumorGame, Realism.eventFunc.competition.rumorGame);
-        
-}();
+
+        GDT.loadJs([
+        'mods/realism-mod/event/events.js'
+        ], ready, error);
+})();

@@ -1,4 +1,3 @@
-gdt-mod.realism-mod
-===================
+#Game Dev Tycoon: Realism Mod
 
-Game Dev Tycoon: Realism Mod  A mod for GDT to add more realistic features like competitors/randomized consoles/controlling publishers/the ability to design a computer/and more
+A mod for GDT to add more realistic features like competitors/randomly occuring consoles/publishers who control the entire game/the ability to design a computer/and more.

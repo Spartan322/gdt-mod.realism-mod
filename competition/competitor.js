@@ -25,7 +25,7 @@ var Competitiors = {};
                 };
                 CreateRandomCompetitior = function() {
                         var name = UltimateLib.NameGenerator().generateCompanyName();
-                        return self.CreateCompetitior(name, Competitiors.entity.length + 1);
+                        return self.CreateCompetitior(name, Competitiors.entity.length);
                 };
         }
 }();

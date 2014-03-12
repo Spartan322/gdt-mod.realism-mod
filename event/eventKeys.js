@@ -125,7 +125,8 @@ Revent.Check = function() {
 	}
 	//For Loop for Released Items
 	for(var i = 0; i < ReventKeys.keys.released.length; i++)
-		Revent.Call(ReventKeys.checks.released[i],Revent.keys.releeased[i]);
+		Revent.Call(ReventKeys.checks.released[i],Revent.keys.released[i]);
 	//For Loop for Cancelled Items
 	for(var i = 0; i < ReventKeys.keys.canceled.length; i ++)
-}
+		Revent.Call(ReventKey.checks.canceled[i],Revent.keys.canceled[i]);
+};

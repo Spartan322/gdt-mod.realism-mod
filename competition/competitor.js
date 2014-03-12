@@ -25,8 +25,14 @@ var Competitiors = {};
                 };
                 CreateRandomCompetitior = function() {
                         var name = UltimateLib.NameGenerator().generateCompanyName();
-                        return self.CreateCompetitior(name, Competitiors.entity.length);
+                        return Competitiors.competition.CreateCompetitior(name, Competitiors.entity.length);
                 };
+                SetCompetitiorIcon = function(id,iconUri) {
+                        Competitiors.entity[id].icon = iconUri;
+                }
+                GetCompetitiorIcon = function(id) {
+                        return Competitiors.entity[id].icon;
+                }
         }
 }();
 Competitiors.dataStore = GDT.getDataStore("Realism-Mod");

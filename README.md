@@ -2,10 +2,14 @@
 
 When you feel Game Dev Tycoon just isn't real enough.
 
-#Cureent Features
+#Current Features
 
 * List of Competitiors (Not Visible in Gamae)
 * 3 New Events (Not yet triggerable)
+
+#Current Version
+
+0.0.1.0 (Not Released)
 
 #To Do List
 

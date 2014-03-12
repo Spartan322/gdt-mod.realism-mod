@@ -22,6 +22,22 @@ var Competitiors = {};
                                         return i;
                         }
                         return Unknown;
-                }
+                };
+                CreateRandomCompetitior = function() {
+                        var name = UltimateLib.NameGenerator().generateCompanyName();
+                        return self.CreateCompetitior(name, Competitiors.entity.length + 1);
+                };
         }
 }();
+Competitiors.save = function() {
+        if(Competitiors.entity.length == 0)
+                return;
+        dataStore = GDT.getDataStore("Realism-Mod");
+        self.dataStore.data.cEntities = Competitiors.entity;
+}();
+Competitiors.startUp = function() {
+        GDT.on(GDT.eventKeys.saves.saving, Competitiors.save);
+        GDT.on(GDT.eventKeys.saves.loading, function(){
+                Competitiors.entity = self.dataStore.data.cEntities;
+        });
+}

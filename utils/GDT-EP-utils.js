@@ -6,7 +6,7 @@ var ExpPack = {};
 		var company = GameManager.company;
 		var gamePrice;
 		var newPrice;
-		var dataStore = GDT.getDataStore("ExpPackMod");
+		var dataStore = GDT.getDataStore("Realism-Extras");
 		
 		UI.selectPriceClick = function (a) {
 		Sound.click();

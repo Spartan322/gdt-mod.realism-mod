@@ -29,10 +29,11 @@ var Competitiors = {};
                 };
         }
 }();
+Competitiors.dataStore = GDT.getDataStore("Realism-Mod");
 Competitiors.save = function() {
         if(Competitiors.entity.length == 0)
                 return;
-        dataStore = GDT.getDataStore("Realism-Mod");
+        
         self.dataStore.data.cEntities = Competitiors.entity;
 }();
 Competitiors.startUp = function() {

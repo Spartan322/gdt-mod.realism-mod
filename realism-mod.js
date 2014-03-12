@@ -12,8 +12,15 @@
 
         var error = function () {
         };
-
-        GDT.loadJs([
+        GDT.loadJs(['mods/gdt-modAPI/helpers/checks.js',
+        'mods/gdt-modAPI/api/persistence.js',
+        'mods/gdt-modAPI/api/events.js',
+        'mods/gdt-modAPI/api/platforms.js',
+        'mods/gdt-modAPI/api/topics.js',
+        'mods/gdt-modAPI/api/research.js',
+        'mods/gdt-modAPI/examples/examples.js',
+        'mods/realism-mod/utils/GDT-UL-utils.js',
+        'mods/realism-mod/utils/GDT-EP-utils.js',
         'mods/realism-mod/competition/competitior.js',
         'mods/realism-mod/event/events.js'
         ], ready, error);

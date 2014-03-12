@@ -4,6 +4,7 @@
         var ready = function () {
                 ExpPack.addCustomPrice();
                 ExpPack.addBlackBull();
+                Competitiors.startUp();
                 //example calls
         
                 //Examples.addTopic();

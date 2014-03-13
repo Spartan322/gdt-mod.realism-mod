@@ -69,3 +69,16 @@ CompManager.CompNameGenerator = function(){
         
         return Comp;
 };
+CompManager.dataStore = GDT.getDataStore("Realism-Mod");
+CompManager.save = function() {
+        if(Competitiors.entity.length == 0)
+                return;
+        
+        self.dataStore.data.cEntities = CompManager.comp;
+}();
+CompManager.startUp = function() {
+        GDT.on(GDT.eventKeys.saves.saving, CompManager.save);
+        GDT.on(GDT.eventKeys.saves.loading, function(){
+                CompManager.comp = self.dataStore.data.cEntities;
+        });
+}

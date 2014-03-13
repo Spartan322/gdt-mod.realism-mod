@@ -1,14 +1,14 @@
 var Events = {};
 (function () {
         Events.baseID = "BBBBFEADFWS-44D432DEW-5FW543FESDW-Realism-";
-        Events.rands.ID = Events.rands.ID = {};
+        Events.ID = Events.ID = {};
         Events.CreateEvent = function() {
-                Events.rands.ID.push(Events.rands.ID.length);
-                for(var i = 0; i < Events.rands.ID.length; i++)
-                        Events.rands.ID[i] = baseID + "rnd-" + i;
+                Events.ID.push(Events.ID.length);
+                for(var i = 0; i < Events.ID.length; i++)
+                        Events.ID[i] = baseID + "Events-" + i;
         };
         Events.GetEventID = function(id) {
-                return Events.rands.ID[id];        
+                return Events.ID[id];        
         }
         Events.rand[0] = {
                 Events.CreateEvent();

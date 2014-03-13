@@ -4,7 +4,7 @@
         var ready = function () {
                 ExpPack.addCustomPrice();
                 ExpPack.addBlackBull();
-                Competitiors.startUp();
+                CompManager.startUp();
                 //example calls
         
                 //Examples.addTopic();
@@ -27,7 +27,7 @@
         'mods/realism-mod/utils/GDT-EP-utils.js',
         'mods/realism-mod/utils/utils.js'
         'mods/realism-mod/event/eventKeys.js'
-        'mods/realism-mod/competition/competitior.js',
+        'mods/realism-mod/competition/Comp-Manager.js',
         'mods/realism-mod/event/events.js'
         ], ready, error);
 })();

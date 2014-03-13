@@ -66,67 +66,20 @@ var ReventKeys = {};
 					Logger.LogWarning("GDT event handler error", e)
 				}
 	};
-	ReventKeys.checks = {
-		self.rumor = {
-			self.game = false,
-			self.engine = false,
-			self.convention = false
-		}
-		self.announced = {
-			self.game = {
-				self.itself = false,
-				self.name = false,
-				self.features = false,
-				self.relDate = false,
-				self.endDate = false
-			}
-			self.engine = {
-				self.itself = false,
-				self.name = false,
-				self.features = false,
-				self.relDate = false,
-				self.pubDate = false	
-			},
-			self.convention = {
-				self.itself = false,
-				self.name = false,
-				self.date = false,
-				self.isfor = false
-			}
-		}
-		self.released = {
-			self.game = false,
-			self.engine = false
-		}
-		self.canceled = {
-			self.game = false,
-			self.convention = false
-		}
-		
-	}
+	var rek = ReventKeys;
+	rek.NPCoRumorGameDefinition = function (id) {
+		rek.fire(CompManager,rek.rumor.game,{
+			company : CompManager.GetCompetitiorID(id)
+		});
+	};
+	rek.NPCoRumorEngineDefinition = function (id) {
+		rek.fire(CompManager,rek.rumor.engine, {
+			company : CompManager.GetCompetitiorID(id)
+		});
+	};
+	rek.NPCoRumorConventionDefinition = function (id) {
+		rek.fire(CompManager,rek.rumor.convention, {
+			company : CompManager.GetCompetitiorID(id)
+		});
+	};
 })();
-Revent = {};
-Revent.Call = function(obj,hook) {
-	if(obj){
-		if(hook != null)
-			GDT.fire(ReventKeys,hook,null);
-		}
-};
-Revent.Check = function() {
-	//For Loop for Rumors
-	for(var i = 0; i < ReventKeys.keys.rumor.length; i++)
-		Revent.Call(ReventKeys.checks.rumor[i],ReventKeys.keys.rumor[i]);
-	self.checka = ReventKeys.checks.announced;
-	//For Loop for Announced Items
-	for(var i = 0; i < self.checka.length; i++){
-		self.checka[i] = self.inside;
-		for(var b = 0; b < self.inside.length; b++)
-			Revent.Call(self.inside[i],self.inside[i]);	
-	}
-	//For Loop for Released Items
-	for(var i = 0; i < ReventKeys.keys.released.length; i++)
-		Revent.Call(ReventKeys.checks.released[i],Revent.keys.released[i]);
-	//For Loop for Cancelled Items
-	for(var i = 0; i < ReventKeys.keys.canceled.length; i ++)
-		Revent.Call(ReventKey.checks.canceled[i],Revent.keys.canceled[i]);
-};

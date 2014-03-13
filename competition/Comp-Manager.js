@@ -31,6 +31,7 @@ var CompManager = {};
 var RandCompName = {
         prefixes = ["Crashed","Missing","Fun","Angry","Flying","Blocked","Kicking","Jumping","Punched","Headless","Round","Cluesless"],
         names = ["Watermelon","Shuttle","Pole","Shoes","Tech","Computers","Pumkins","Sword","Hammer","Mirror","Cart","Programs"],
+        //The current icons are mostly placeholders for now
         icons = ['./mods/realism-mod/img/Wat.png','./mods/realism-mod/img/Shu.png','./mods/realism-mod/img/Pol.png','./mods/realism-mod/img/Sho.png','./mods/realism-mod/img/Tec.png','./mods/realism-mod/img/Com.png','./mods/realism-mod/img/Pum.png','./mods/realism-mod/img/Swo.png','./mods/realism-mod/img/Ham.png','./mods/realism-mod/img/Mir.png','./mods/realism-mod/img/Car.png','./mods/realism-mod/img/Pro.png']
         suffixess = ["Ltd","Inc","LLC","Corp.","Co.","Association","Syndicate"]
 };

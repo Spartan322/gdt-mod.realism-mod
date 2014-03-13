@@ -24,8 +24,8 @@ var CompManager = {};
                 return Unknown;
         };
         CompManager.CreateRandom() = function() {
-                
-                CompManager.CreateCompetitior()
+                var newComp = CompManager.CompNameGenerator();
+                CompManager.CreateCompetitior(newComp.name,CompManager.comp.length,newComp.icon);
         };
 })();
 var RandCompName = {

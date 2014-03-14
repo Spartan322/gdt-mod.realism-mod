@@ -63,7 +63,7 @@ var ReventKeys = {};
 				try {
 					subs[i].call(obj, data)
 				} catch (e) {
-					Logger.LogWarning("GDT event handler error", e)
+					Logger.LogWarning("GDT-Realism-Mod event handler error", e)
 				}
 	};
 	var rek = ReventKeys;
@@ -81,5 +81,54 @@ var ReventKeys = {};
 		rek.fire(CompManager,rek.rumor.convention, {
 			company : CompManager.GetCompetitiorID(id)
 		});
+	};
+	rek.eventTypeList = rek.eventTypeList = {};
+	rek.eventTypeList.announced = rek.eventTypeList.announced = {};
+	events = rek.eventTypeList;
+	events.announced.game = ["itself","name","features","relDate","endDate"];
+	events.announced.engine = ["itself","name","features","relDate","pubDate"];
+	events.announced.convention = ["itself","name","date","isfor"];
+	var an = events.announced; 
+	rek.NPCoAnnouncedDefinition = function (id, afor, type) {
+		var locate = null
+		if(afor === "game"){
+			for(var i = 0; i < an.game.length; i++){
+				if(type === an.game[i]){
+					locate = i;
+					if(locate === null)
+						return;
+					break;
+				}
+			}
+			rek.fire(CompManager,rek.announced.game[locate], {
+				company : CompManager.GetCompetitiorID(id)
+			});
+		}
+		else if(afor === "engine"){
+			for(var i = 0; i < an.engine.length; i++){
+				if(type === an.engine[i]){
+					locate = i;
+					if(locate === null)
+						return;
+					break;
+				}
+			}
+			rek.fire(CompManager,rek.announced.engine[locate], {
+				company : CompManager.GetCompetitiorID(id)
+			});
+		}
+		else{
+			for(var i = 0; i < an.convention.length; i++){
+				if(type === an.convention[i]){
+					locate = i;
+					if(locate === null)
+						return;
+					break;
+				}
+			}
+			rek.fire(CompManager,rek.announced.convention[locate], {
+				company : CompManager.GetCompetitiorID(id)
+			});
+		}
 	};
 })();

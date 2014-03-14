@@ -1,4 +1,5 @@
 var CompManager = {};
+var gm = GameManager;
 (function (){
         CompManager.comp = {};
         CompManager.CreateCompetitior = function(cname,cid,cicon) {
@@ -82,3 +83,56 @@ CompManager.startUp = function() {
                 CompManager.comp = self.dataStore.data.cEntities;
         });
 }
+var cm = CompManager;
+cm.createNPCoEngine = function (id,name,tech,parts,costs,relWeek,owner) {
+        var engine = {
+                id : id,
+                name : name,
+                parts : parts,
+                techLevel : tech,
+                costs : costs
+                releaseWeek : relWeek
+                owner : owner
+        };
+        gm.company.engines.push(engine);
+        for (var i = 0; i < engine.parts.length; i++) {
+                var part = engine.parts[i];
+                gm.company.engineParts.push(part)
+	}
+	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an engine known as {1}. We could probably create a couple games off of it if we buy the license for it".localize().format(engine.owner,engine.name)))
+		
+};
+cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
+        var engine = {
+                id : id,
+                name : name,
+                parts : parts,
+                techLevel : tech,
+                releaseWeek : relWeek
+                owner : owner
+        };
+        gm.company.engines.push(engine);
+        for (var i = 0; i < engine.parts.length; i++) {
+                var part = engine.parts[i];
+                gm.company.engineParts.push(part)
+	}
+	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an open source engine with a license known as {1}. We could probably create a couple games off of it. We could also modify {1} but we need to state that we weren't the orignal creators of it or we could be sued or fined".localize().format(engine.owner,engine.name)))
+		
+};
+cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
+        var engine = {
+                id : id,
+                name : name,
+                parts : parts,
+                techLevel : tech,
+                releaseWeek : relWeek
+                owner : owner
+        };
+        gm.company.engines.push(engine);
+        for (var i = 0; i < engine.parts.length; i++) {
+                var part = engine.parts[i];
+                gm.company.engineParts.push(part)
+	}
+	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an open source engine known as {1}. We could probably create a couple games off of it. We could also modify {1}. We do not have to credit anyone for the engine".localize().format(engine.owner,engine.name)))
+		
+};

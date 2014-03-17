@@ -14,6 +14,7 @@ When you feel Game Dev Tycoon just isn't real enough.
 #To Do List
 
 * Add usable hooks
+* Only bother with Competitiors right now
 
 ##Competitior List
 

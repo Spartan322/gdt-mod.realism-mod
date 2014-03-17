@@ -2,12 +2,13 @@ var CusCom = {};
 (function () {
 		/* Compatibility check */
 	var compatibilityCheck = function(data){
-	for (var i = 0; i < ModSupport.availableMods.length; i++) {
-		var mod = ModSupport.availableMods[i];
-		if(mod.url == "https://github.com/DzjengisKhan/GDT-Expansion-Pack" && mod.active){
-			return;
-		}
-	};
+		for (var i = 0; i < ModSupport.availableMods.length; i++) {
+			var mod = ModSupport.availableMods[i];
+			if(mod.url == "https://github.com/DzjengisKhan/GDT-Expansion-Pack" && mod.active){
+				return false;
+			}
+		};
+	if (!compatibilityCheck()) return;
 	var curPage = 0;
 	var Parts = {};
 	p = Parts;

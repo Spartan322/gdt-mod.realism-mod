@@ -1,4 +1,5 @@
 var CusCom = {};
+var CustomOS = {};
 (function () {
 		/* Compatibility check */
 	var compatibilityCheck = function(data){
@@ -8,12 +9,36 @@ var CusCom = {};
 				return false;
 			}
 		};
-	if (!compatibilityCheck()) return;
 	var curPage = 0;
 	var Parts = {};
 	p = Parts;
 	
 	/* OS */
+		for(var i = 0; i < CustomOS.length; i++){
+			CustomOS[i].id = CusomtOS[i].name = "CustomOS-" + i;
+			CustomOS[i].consolePart = true;
+			CustomOS[i].category = "Operating Sysetem";
+			CustomOS[i].group = "Operating System";
+			CustomOS[i].categoryDisplayName = CustomOS[i].creator;
+			CusotmOS[i].canResearch = function(company) {
+				return !company.flags.customComResearch;
+			};
+			p.osParts += CustomOS[i];
+		}
+		p.KLASS = {
+			id: "KLASS TECH RAM",
+			name: "KLASS TECH RAM 2.0".localize,
+			engineCost: 9E1,
+			v:14,
+				techLevel : 6,
+			canResearch: function (company){
+				return !company.flags.klasstech.newram && !company.flags.cusomHardwareResearched;
+			},
+			consolePart: true,
+			category: "RAM",
+			categoryDisplayName: "RAM 2.0".localize(),
+			group: "RAM"
+		};
 		/* Vindows */
 		p.VindowsVista = {
 			id: "Vindows Vista",
@@ -742,7 +767,7 @@ var CusCom = {};
 		group: "RAM"
 	};
 	
-	p.RAMParts = [p.TwoGBRAM, p.FourGBRAM, p.EightGBRAM, p.STGBRAM, p.TTGBRAM, p.SFGBRAM, p.OTEGBRAM];
+	p.RAMParts = [p.TwoGBRAM, p.FourGBRAM, p.EightGBRAM, p.STGBRAM, p.TTGBRAM, p.SFGBRAM, p.OTEGBRAM,p.KLASS];
 	/*  */
 	
 	/* Storage */

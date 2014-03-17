@@ -99,8 +99,23 @@ cm.createNPCoEngine = function (id,name,tech,parts,costs,relWeek,owner) {
                 var part = engine.parts[i];
                 gm.company.engineParts.push(part)
 	}
-	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an engine known as {1}. We could probably create a couple games off of it if we buy the license for it".localize().format(engine.owner,engine.name)))
-		
+	var icon = "";
+	var ownloc;
+	for(var i = 0; i < cm.comp.length; i++){
+		if(cm.comp[i].name == owner)
+		{
+			icon = cm.comp[i].icon;
+			ownloc = i;
+			break;
+		}
+	}
+	var msg = "{0} has just created an engine known as {1}. We could probably create a couple games off of it if we buy the license for it".localize().format(engine.owner,engine.name);
+	gm.company.notifications.push(new Notification(
+		header: "{0}'s Engine".localize("heading").format(engine.owner),
+		text: msg,
+		image: icon
+	));
+	cm.comp[ownloc].engines.push(engine);
 };
 cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
         var engine = {
@@ -108,16 +123,31 @@ cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
                 name : name,
                 parts : parts,
                 techLevel : tech,
+                costs : 0,
                 releaseWeek : relWeek
-                owner : owner
+                owner : owner,
+                needsMention : true
         };
         gm.company.engines.push(engine);
         for (var i = 0; i < engine.parts.length; i++) {
                 var part = engine.parts[i];
-                gm.company.engineParts.push(part)
+                gm.company.engineParts.push(part);
 	}
-	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an open source engine with a license known as {1}. We could probably create a couple games off of it. We could also modify {1} but we need to state that we weren't the orignal creators of it or we could be sued or fined".localize().format(engine.owner,engine.name)))
-		
+	var icon = "";
+	for(var i = 0; i < cm.comp.length; i++){
+		if(cm.comp[i].name == owner)
+		{
+			icon = cm.comp[i].icon;
+			break;
+		}
+	}
+	var msg = "{0} has just created an open source engine with a license known as {1}. We could probably create a couple games off of it. We could also modify {1} but we need to state that we weren't the orignal creators of it or we could be sued".localize().format(engine.owner,engine.name);
+	gm.company.notifications.push(new Notification(
+		header:"{0}'s Engine".localize("heading").format(engine.owner),
+		text: msg
+		image: icon
+	));
+	cm.comp[ownloc].engines.push(engine);	
 };
 cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
         var engine = {
@@ -125,14 +155,29 @@ cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
                 name : name,
                 parts : parts,
                 techLevel : tech,
+                costs : 0
                 releaseWeek : relWeek
-                owner : owner
+                owner : owner,
+                needsMention : false
         };
         gm.company.engines.push(engine);
         for (var i = 0; i < engine.parts.length; i++) {
                 var part = engine.parts[i];
                 gm.company.engineParts.push(part)
 	}
-	gm.company.notifications.push(new Notification("{0}'s Engine".localize("heading").format(engine.owner), "{0} has just created an open source engine known as {1}. We could probably create a couple games off of it. We could also modify {1}. We do not have to credit anyone for the engine".localize().format(engine.owner,engine.name)))
-		
+	var icon = "";
+	for(var i = 0; i < cm.comp.length; i++){
+		if(cm.comp[i].name == owner)
+		{
+			icon = cm.comp[i].icon;
+			break;
+		}
+	}
+	var msg = "{0} has just created an open source engine known as {1}. We could probably create a couple games off of it. We could also modify {1}. We do not have to credit anyone for the engine".localize().format(engine.owner,engine.name);
+	gm.company.notifications.push(new Notification(
+		header: "{0}'s Engine".localize("heading").format(engine.owner), 
+		text: msg,
+		image: icon
+		));
+	cm.comp[ownloc].engines.push(engine);	
 };

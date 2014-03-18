@@ -131,4 +131,14 @@ var ReventKeys = {};
 			});
 		}
 	};
+	rek.NPCoReleasedGameDefinition = function(id) {
+		rek.fire(CompManager,rek.released.game,{
+			company : CompManager.GetCompetitiorID(id)
+		});
+	};
+	rek.NPCoReleasedEngineDefinition = function(id) {
+		rek.fire(CompManager,rek.released.engine,{
+			company : CompManager.GetCompetitiorID(id)
+		});
+	};
 })();

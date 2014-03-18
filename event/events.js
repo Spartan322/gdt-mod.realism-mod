@@ -10,7 +10,8 @@ var Events = {};
         Events.GetEventID = function() {
                 return Events.ID.pop();
         };
-        Events.callGameRumor = function() {
+        Events.callGameRumor = function(company) {
+                if(!CompManager.GetCompetitiorN(company)) return;
                 Events.CreateEvent();
                 var thisID = Events.GetEventID();
                 var e = {
@@ -22,7 +23,7 @@ var Events = {};
                         },
                         getNotification: function (company) {
                                 var game = company.currentGame;
-                                var msg = "News: It seems {0} has a new game coming to the market. They haven't comfirmed it but {0} seems to be finishing development on the game.".localize().format(Competitiors.entity[Competitiors.entity.length-1].name);
+                                var msg = "News: It seems {0} has a new game coming to the market. They haven't comfirmed it but {0} seems to be finishing development on the game.".localize().format(company);
                                 var n = new Notification({
                                         sourceId: thisID,//this is important, otherwise nothing will happen when the player selects an option.
                                         header: "Rumor: New Game".localize(),//granted, this is a silly header.
@@ -33,8 +34,10 @@ var Events = {};
                         }
                 }
                 GDT.addEvent(e);
+                ReventKeys.NPCoRumorGameDefinition(CompManager.GetCompetitiorN(company));
         };
         Events.callEngineRumor = function() {
+                if(!CompManager.GetCompetitiorN(company)) return;
                 Events.CreateEvent();
                 var thisID = Events.GetEventID();
                 var e = {
@@ -55,9 +58,11 @@ var Events = {};
                         }
                 }
                 GDT.addEvent(e);
+                ReventKeys.NPCoRumorEngineDefinition(CompManager.GetCompetitiorN(company));
         };
         
         Events.callConventionRumor = function() {
+                if(!CompManager.GetCompetitiorN(company)) return;
                 Events.CreateEvent();
                 var thisID = Events.GetEventID();
                 var e = {
@@ -79,6 +84,7 @@ var Events = {};
                         }
                 } 
                 GDT.addEvent(e);
+                ReventKeys.NPCoRumorConventionDefinition(CompManager.GetCompetitiorN(company));
         };
         
 })();

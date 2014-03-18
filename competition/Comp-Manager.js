@@ -99,16 +99,8 @@ cm.createNPCoEngine = function (id,name,tech,parts,costs,relWeek,owner) {
                 var part = engine.parts[i];
                 gm.company.engineParts.push(part)
 	}
-	var icon = "";
-	var ownloc;
-	for(var i = 0; i < cm.comp.length; i++){
-		if(cm.comp[i].name == owner)
-		{
-			icon = cm.comp[i].icon;
-			ownloc = i;
-			break;
-		}
-	}
+	var ownloc = cm.GetCompetitiorN(owner);
+	var icon = cm.comp[ownloc].icon;
 	var msg = "{0} has just created an engine known as {1}. We could probably create a couple games off of it if we buy the license for it".localize().format(engine.owner,engine.name);
 	gm.company.notifications.push(new Notification(
 		header: "{0}'s Engine".localize("heading").format(engine.owner),
@@ -116,6 +108,7 @@ cm.createNPCoEngine = function (id,name,tech,parts,costs,relWeek,owner) {
 		image: icon
 	));
 	cm.comp[ownloc].engines.push(engine);
+	ReventKeys.NPCoReleasedEngineDefinition(ownloc);
 };
 cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
         var engine = {
@@ -133,14 +126,8 @@ cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
                 var part = engine.parts[i];
                 gm.company.engineParts.push(part);
 	}
-	var icon = "";
-	for(var i = 0; i < cm.comp.length; i++){
-		if(cm.comp[i].name == owner)
-		{
-			icon = cm.comp[i].icon;
-			break;
-		}
-	}
+	var ownloc = cm.GetCompetitiorN(owner);
+	var icon = cm.comp[ownloc].icon;
 	var msg = "{0} has just created an open source engine with a license known as {1}. We could probably create a couple games off of it. We could also modify {1} but we need to state that we weren't the orignal creators of it or we could be sued".localize().format(engine.owner,engine.name);
 	gm.company.notifications.push(new Notification(
 		header:"{0}'s Engine".localize("heading").format(engine.owner),
@@ -148,6 +135,7 @@ cm.createOSLEngine = function (id,name,tech,parts,relWeek,owner) {
 		image: icon
 	));
 	cm.comp[ownloc].engines.push(engine);	
+	ReventKeys.NPCoReleasedEngineDefinition(ownloc);
 };
 cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
         var engine = {
@@ -165,14 +153,8 @@ cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
                 var part = engine.parts[i];
                 gm.company.engineParts.push(part)
 	}
-	var icon = "";
-	for(var i = 0; i < cm.comp.length; i++){
-		if(cm.comp[i].name == owner)
-		{
-			icon = cm.comp[i].icon;
-			break;
-		}
-	}
+	var ownloc = cm.GetCompetitiorN(owner);
+	var icon = cm.comp[ownloc].icon;
 	var msg = "{0} has just created an open source engine known as {1}. We could probably create a couple games off of it. We could also modify {1}. We do not have to credit anyone for the engine".localize().format(engine.owner,engine.name);
 	gm.company.notifications.push(new Notification(
 		header: "{0}'s Engine".localize("heading").format(engine.owner), 
@@ -180,4 +162,5 @@ cm.createOSEngine = function (id,name,tech,parts,relWeek,owner) {
 		image: icon
 		));
 	cm.comp[ownloc].engines.push(engine);	
+	ReventKeys.NPCoReleasedEngineDefinition(ownloc);
 };

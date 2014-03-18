@@ -25,9 +25,9 @@
         'mods/gdt-modAPI/examples/examples.js',
         'mods/realism-mod/utils/GDT-UL-utils.js',
         'mods/realism-mod/utils/GDT-EP-utils.js',
-        'mods/realism-mod/utils/utils.js'
-        'mods/realism-mod/event/eventKeys.js'
-        'mods/realism-mod/competition/Comp-Manager.js',
-        'mods/realism-mod/event/events.js'
+        'mods/realism-mod/utils/utils.js',
+        'mods/realism-mod/event/eventKeys.js',
+        'mods/realism-mod/event/events.js',
+        'mods/realism-mod/competition/Comp-Manager.js'
         ], ready, error);
 })();

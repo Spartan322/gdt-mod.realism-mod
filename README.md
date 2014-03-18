@@ -4,12 +4,10 @@ When you feel Game Dev Tycoon just isn't real enough.
 
 #Current Features
 
-* List of Competitiors (Not Visible in Gamae)
 * 3 New Events (Not yet triggerable)
-* Better Triggers
 * Randomly Named Competitiors
 * Competitiors able to make and sell Engines
-* 3 Types of Game Engines
+* 3 Types of Non-Player Company Game Engines
   * Buyable License Engine
   * Freeware Licensed Engine
   * Open Source Freeware Engine

@@ -19,7 +19,7 @@ var gm = GameManager;
                 if(Comp.length < 0) return Unknown;
                 for(i = 0; i<Comp.length;i++)
                 {
-                        if(Comp.name == name)
+                        if(Comp[i].name == name)
                                 return i;
                 }
                 return Unknown;
